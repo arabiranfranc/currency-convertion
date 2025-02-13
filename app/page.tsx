@@ -106,7 +106,7 @@ export default function Home() {
         </button>
 
         {conversionList.map((item, index) => (
-          <div key={index} className="flex gap-2 w-full">
+          <div key={index} className="flex gap-2 w-full items-center">
             <select
               value={item.currency}
               onChange={(e) => {
@@ -132,6 +132,17 @@ export default function Home() {
               disabled
               className="flex-1 p-2 border rounded-md"
             />
+
+            <button
+              onClick={() =>
+                setConversionList((prevList) =>
+                  prevList.filter((_, i) => i !== index)
+                )
+              }
+              className="p-2 text-red-500 hover:text-red-700"
+            >
+              ✖
+            </button>
           </div>
         ))}
 
